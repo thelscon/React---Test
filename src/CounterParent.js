@@ -17,26 +17,13 @@ export default class CounterParent extends React.Component {
     encreace ( ev ) {
 
         console.log ( ev.target ) ;
-        console.log ( this )
+        console.log ( this ) ;
 
-        if ( ev.shiftKey ) {
-            this.setState ( 
-                ( prevState ) => {
-                    return {
-                        count : prevState.count + 10
-                    }
-                }
-            )
-        }
-        else {
-            this.setState ( 
-                ( prevState ) => {
-                    return {
-                        count : prevState.count + 1
-                    }
-                }
-            )
-        }
+        this.setState ( prevState => {
+            return {
+                count : ev.shiftKey ? ( prevState.count + 10 ) : ( prevState.count + 1 )
+            }
+        } )
 
     }
 
